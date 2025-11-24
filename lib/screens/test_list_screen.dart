@@ -1,4 +1,3 @@
-// app/screens/tests/test_list_screen.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -25,16 +24,16 @@ class TestListScreen extends StatelessWidget {
                     Text(
                       'Skill Assessment Tests',
                       style: TextStyle(
-                        fontSize: 20.sp,
+                        fontSize: 18.sp,
                         fontWeight: FontWeight.w700,
                         color: AppColors.textDark,
                       ),
                     ),
-                    SizedBox(height: 1.h),
+                    SizedBox(height: 0.5.h),
                     Text(
                       'Show us what you can do!',
                       style: TextStyle(
-                        fontSize: 11.5.sp,
+                        fontSize: 13.sp,
                         color: AppColors.textGrey,
                       ),
                     ),
@@ -103,7 +102,7 @@ class TestListScreen extends StatelessWidget {
                 child: Text(
                   difficulty,
                   style: TextStyle(
-                    fontSize: 10.sp,
+                    fontSize: 12.sp,
                     color: _getDifficultyColor(difficulty),
                     fontWeight: FontWeight.w600,
                   ),
@@ -115,7 +114,7 @@ class TestListScreen extends StatelessWidget {
               Text(
                 '$duration minutes',
                 style: TextStyle(
-                  fontSize: 11.sp,
+                  fontSize: 12.sp,
                   color: AppColors.textGrey,
                 ),
               ),
@@ -125,7 +124,7 @@ class TestListScreen extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 14.sp,
+              fontSize: 14.5.sp,
               fontWeight: FontWeight.w700,
               color: AppColors.textDark,
             ),
@@ -147,7 +146,7 @@ class TestListScreen extends StatelessWidget {
               child: Text(
                 skill,
                 style: TextStyle(
-                  fontSize: 10.sp,
+                  fontSize: 11.5.sp,
                   color: AppColors.primaryBlue,
                   fontWeight: FontWeight.w500,
                 ),
@@ -174,7 +173,7 @@ class TestListScreen extends StatelessWidget {
               child: Text(
                 'Start Test',
                 style: TextStyle(
-                  fontSize: 13.sp,
+                  fontSize: 13.5.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),

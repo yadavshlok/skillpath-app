@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
           // App Bar
           SliverToBoxAdapter(
             child: Container(
-              padding: EdgeInsets.all(4.w),
+              padding: EdgeInsets.all(5.w),
               decoration: BoxDecoration(
                 color: Colors.white,
                 boxShadow: AppConstants.lightShadow,
@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                                 user?.initials ?? 'JD',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 12.sp,
+                                  fontSize: 13.sp,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Welcome Back, Student! 👋',
+                    'Welcome Back, Student!',
                     style: TextStyle(
                       fontSize: 20.sp,
                       fontWeight: FontWeight.w700,
@@ -136,7 +136,7 @@ class HomeScreen extends StatelessWidget {
                   Text(
                     'Explore career paths and discover the skills you need to succeed',
                     style: TextStyle(
-                      fontSize: 11.5.sp,
+                      fontSize: 12.sp,
                       color: AppColors.textGrey,
                       height: 1.4,
                     ),
@@ -176,7 +176,7 @@ class HomeScreen extends StatelessWidget {
                       vertical: 2.h,
                     ),
                   ),
-                  style: TextStyle(fontSize: 12.sp),
+                  style: TextStyle(fontSize: 12.5.sp),
                 ),
               ),
             ),
@@ -184,38 +184,6 @@ class HomeScreen extends StatelessWidget {
 
           SliverToBoxAdapter(child: SizedBox(height: 2.5.h)),
 
-          // Career Paths Header
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Explore Career Paths',
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.textDark,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'View All',
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        color: AppColors.primaryBlue,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          // Career Cards - FIXED spacing
           SliverPadding(
             padding: EdgeInsets.symmetric(horizontal: 5.w),
             sliver: Obx(() => SliverGrid(
@@ -303,7 +271,7 @@ class HomeScreen extends StatelessWidget {
             career.title,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 11.sp,
+              fontSize: 12.5.sp,
               fontWeight: FontWeight.w700,
               color: AppColors.textDark,
             ),
@@ -316,7 +284,7 @@ class HomeScreen extends StatelessWidget {
               career.description,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 10.sp,
+                fontSize: 11.5.sp,
                 color: AppColors.textGrey,
               ),
               maxLines: 2,
@@ -329,11 +297,7 @@ class HomeScreen extends StatelessWidget {
             height: 3.6.h,
             child: ElevatedButton(
               onPressed: () {
-                Get.snackbar(
-                  'Career Path',
-                  'Exploring ${career.title}',
-                  snackPosition: SnackPosition.BOTTOM,
-                );
+
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: career.color,
@@ -347,7 +311,7 @@ class HomeScreen extends StatelessWidget {
               child: Text(
                 'Explore',
                 style: TextStyle(
-                  fontSize: 11.sp,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -474,8 +438,8 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         selectedItemColor: AppColors.primaryBlue,
         unselectedItemColor: AppColors.textGrey,
-        selectedFontSize: 11.2.sp, // Reduced from 11.sp
-        unselectedFontSize: 10.sp, // Reduced from 10.sp
+        selectedFontSize: 13.sp, // Reduced from 11.sp
+        unselectedFontSize: 12.sp, // Reduced from 10.sp
         selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
         iconSize: 2.5.h, // REDUCED from 3.2.h - THIS FIXES THE ICON SIZE
         elevation: 0,
@@ -499,11 +463,6 @@ class HomeScreen extends StatelessWidget {
             icon: Icon(Icons.stars_outlined),
             activeIcon: Icon(Icons.stars),
             label: 'My Skills',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.feedback_outlined),
-            activeIcon: Icon(Icons.feedback),
-            label: 'Feedback',
           ),
         ],
       ),
