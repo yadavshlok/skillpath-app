@@ -242,6 +242,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // Update the _buildMobileCareerCard method in home_screen.dart
   Widget _buildMobileCareerCard(career) {
     return Container(
       padding: EdgeInsets.all(2.h),
@@ -297,7 +298,12 @@ class HomeScreen extends StatelessWidget {
             height: 3.6.h,
             child: ElevatedButton(
               onPressed: () {
-
+                // Navigate to Career Assessment Screen
+                Get.toNamed(Routes.CAREER_ASSESSMENT, arguments: {
+                  'title': career.title,
+                  'color': career.color,
+                  'icon': career.icon,
+                });
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: career.color,
@@ -321,6 +327,7 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+
 
   Widget _buildStatCard(String title, String value, Color color, IconData icon) {
     return Container(

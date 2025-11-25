@@ -224,6 +224,7 @@ class SkillsScreen extends StatelessWidget {
     );
   }
 
+  // Update the _buildSkillSlider method in skills_screen.dart
   Widget _buildSkillSlider(skill) {
     return Padding(
       padding: EdgeInsets.only(bottom: 2.h),
@@ -236,17 +237,24 @@ class SkillsScreen extends StatelessWidget {
               Text(
                 skill.name,
                 style: TextStyle(
-                  fontSize: 12.sp,
+                  fontSize: 13.sp,
                   fontWeight: FontWeight.w600,
                   color: AppColors.textDark,
                 ),
               ),
-              Text(
-                '${skill.level.toInt()}/5',
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.primaryBlue,
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 0.5.h),
+                decoration: BoxDecoration(
+                  color: AppColors.primaryBlue.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Text(
+                  '${skill.level.toInt()}/5',
+                  style: TextStyle(
+                    fontSize: 11.sp,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.primaryBlue,
+                  ),
                 ),
               ),
             ],
@@ -259,22 +267,24 @@ class SkillsScreen extends StatelessWidget {
               inactiveTrackColor: AppColors.borderGrey,
               thumbColor: AppColors.primaryBlue,
               overlayColor: AppColors.primaryBlue.withOpacity(0.2),
-              thumbShape: RoundSliderThumbShape(enabledThumbRadius: 1.2.h),
+              thumbShape: RoundSliderThumbShape(enabledThumbRadius: 1.3.h),
+              disabledThumbColor: AppColors.primaryBlue.withOpacity(0.5),
+              disabledActiveTrackColor: AppColors.primaryBlue.withOpacity(0.5),
+              disabledInactiveTrackColor: AppColors.borderGrey,
             ),
             child: Slider(
               value: skill.level,
               min: 0,
               max: 5,
               divisions: 5,
-              onChanged: (value) {
-                controller.updateSkillLevel(skill.id, value);
-              },
+              onChanged: null, // SET TO NULL TO MAKE IT READ-ONLY
             ),
           ),
         ],
       ),
     );
   }
+
 
   Widget _buildRadarChart() {
     final skills = [...controller.technicalSkills, ...controller.softSkills];

@@ -23,13 +23,13 @@ class SettingsScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppColors.textDark, size: 2.7.h),
+          icon: Icon(Icons.arrow_back, color: AppColors.textDark, size: 2.5.h),
           onPressed: () => Get.back(),
         ),
         title: Text(
           'Settings',
           style: TextStyle(
-            fontSize: 16.sp,
+            fontSize: 18.sp,
             fontWeight: FontWeight.w700,
             color: AppColors.textDark,
           ),
@@ -43,7 +43,7 @@ class SettingsScreen extends StatelessWidget {
             Text(
               'Manage your account and preferences',
               style: TextStyle(
-                fontSize: 11.5.sp,
+                fontSize: 13.5.sp,
                 color: AppColors.textGrey,
               ),
             ),
@@ -67,7 +67,7 @@ class SettingsScreen extends StatelessWidget {
                       Text(
                         'Profile Information',
                         style: TextStyle(
-                          fontSize: 14.sp,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w700,
                           color: AppColors.textDark,
                         ),
@@ -94,7 +94,7 @@ class SettingsScreen extends StatelessWidget {
                                 user?.initials ?? 'JD',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 20.sp,
+                                  fontSize: 22.sp,
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
@@ -129,7 +129,7 @@ class SettingsScreen extends StatelessWidget {
                       child: Text(
                         'Change Photo',
                         style: TextStyle(
-                          fontSize: 12.sp,
+                          fontSize: 13.2.sp,
                           color: AppColors.primaryBlue,
                           fontWeight: FontWeight.w600,
                         ),
@@ -141,7 +141,7 @@ class SettingsScreen extends StatelessWidget {
                       'JPG, PNG or GIF. Max size 2MB',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 10.sp,
+                        fontSize: 12.sp,
                         color: AppColors.textGrey,
                       ),
                     ),
@@ -214,7 +214,7 @@ class SettingsScreen extends StatelessWidget {
                       Text(
                         'Career Goal',
                         style: TextStyle(
-                          fontSize: 14.sp,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w700,
                           color: AppColors.textDark,
                         ),
@@ -240,7 +240,7 @@ class SettingsScreen extends StatelessWidget {
                     child: DropdownButtonFormField<String>(
                       value: controller.selectedCareer.value,
                       style: TextStyle(
-                        fontSize: 11.sp,
+                        fontSize: 12.sp,
                         color: AppColors.textDark,
                         fontWeight: FontWeight.w500,
                       ),
@@ -297,7 +297,7 @@ class SettingsScreen extends StatelessWidget {
                     child: DropdownButtonFormField<String>(
                       value: controller.selectedExperience.value,
                       style: TextStyle(
-                        fontSize: 11.sp,
+                        fontSize: 12.sp,
                         color: AppColors.textDark,
                         fontWeight: FontWeight.w500,
                       ),
@@ -357,7 +357,7 @@ class SettingsScreen extends StatelessWidget {
                       Text(
                         'Notification Preferences',
                         style: TextStyle(
-                          fontSize: 14.sp,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w700,
                           color: AppColors.textDark,
                         ),
@@ -411,7 +411,7 @@ class SettingsScreen extends StatelessWidget {
                       Text(
                         'Appearance',
                         style: TextStyle(
-                          fontSize: 14.sp,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w700,
                           color: AppColors.textDark,
                         ),
@@ -448,7 +448,7 @@ class SettingsScreen extends StatelessWidget {
                   Text(
                     'Account Actions',
                     style: TextStyle(
-                      fontSize: 14.sp,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w700,
                       color: AppColors.textDark,
                     ),
@@ -457,7 +457,7 @@ class SettingsScreen extends StatelessWidget {
                   Text(
                     'Manage your account status',
                     style: TextStyle(
-                      fontSize: 10.sp,
+                      fontSize: 11.sp,
                       color: AppColors.textGrey,
                     ),
                   ),
@@ -475,7 +475,7 @@ class SettingsScreen extends StatelessWidget {
                               'Logout',
                               style: TextStyle(
                                 color: AppColors.error,
-                                fontSize: 11.5.sp,
+                                fontSize: 12.5.sp,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -501,18 +501,18 @@ class SettingsScreen extends StatelessWidget {
                                   ),
                                   title: Text(
                                     'Delete Account',
-                                    style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700),
+                                    style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w700),
                                   ),
                                   content: Text(
                                     'Are you sure you want to delete your account? This action cannot be undone.',
-                                    style: TextStyle(fontSize: 11.sp),
+                                    style: TextStyle(fontSize: 12.sp),
                                   ),
                                   actions: [
                                     TextButton(
                                       onPressed: () => Get.back(),
                                       child: Text(
                                         'Cancel',
-                                        style: TextStyle(fontSize: 12.sp),
+                                        style: TextStyle(fontSize: 13.sp),
                                       ),
                                     ),
                                     TextButton(
@@ -524,7 +524,7 @@ class SettingsScreen extends StatelessWidget {
                                         'Delete',
                                         style: TextStyle(
                                           color: AppColors.error,
-                                          fontSize: 12.sp,
+                                          fontSize: 13.sp,
                                           fontWeight: FontWeight.w600,
                                         ),
                                       ),
@@ -537,7 +537,7 @@ class SettingsScreen extends StatelessWidget {
                               'Delete',
                               style: TextStyle(
                                 color: AppColors.textDark,
-                                fontSize: 11.5.sp,
+                                fontSize: 12.5.sp,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -583,7 +583,7 @@ class SettingsScreen extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 13.sp,
                     fontWeight: FontWeight.w600,
                     color: AppColors.textDark,
                   ),
@@ -591,7 +591,7 @@ class SettingsScreen extends StatelessWidget {
                 Text(
                   subtitle,
                   style: TextStyle(
-                    fontSize: 10.sp,
+                    fontSize: 12.sp,
                     color: AppColors.textGrey,
                   ),
                 ),

@@ -3,6 +3,7 @@ import '../bindings/auth_binding.dart';
 import '../bindings/home_binding.dart';
 import '../bindings/test_binding.dart';
 import '../bindings/settings_binding.dart';
+import '../screens/career_assessment_screen.dart';
 import '../screens/home_screen.dart';
 import '../screens/login_screen.dart';
 import '../screens/settings_screen.dart';
@@ -19,6 +20,10 @@ class AppPages {
       name: Routes.LOGIN,
       page: () => LoginScreen(),
       binding: AuthBinding(),
+    ),
+    GetPage(
+      name: Routes.CAREER_ASSESSMENT, // ADD THIS
+      page: () => CareerAssessmentScreen(),
     ),
     GetPage(
       name: Routes.SIGNUP,

@@ -20,13 +20,13 @@ class TestDetailScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppColors.textDark, size: 3.h),
+          icon: Icon(Icons.arrow_back, color: AppColors.textDark, size: 2.7.h),
           onPressed: () => Get.back(),
         ),
         title: Text(
-          'Skill Assessment Test',
+          Get.arguments['careerTitle'] ?? 'Skill Assessment Test',
           style: TextStyle(
-            fontSize: 15.sp,
+            fontSize: 17.sp,
             fontWeight: FontWeight.w700,
             color: AppColors.textDark,
           ),
@@ -44,9 +44,9 @@ class TestDetailScreen extends StatelessWidget {
                 Icon(Icons.access_time, size: 2.5.h, color: AppColors.primaryBlue),
                 SizedBox(width: 1.5.w),
                 Text(
-                  controller.formattedTime,
+                  controller.formattedTime.value, // This is the fix
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 13.sp,
                     fontWeight: FontWeight.w600,
                     color: AppColors.primaryBlue,
                   ),
@@ -56,6 +56,7 @@ class TestDetailScreen extends StatelessWidget {
           )),
         ],
       ),
+
       body: Obx(() {
         if (controller.currentTest.value == null) {
           return Center(child: CircularProgressIndicator());
@@ -93,7 +94,7 @@ class TestDetailScreen extends StatelessWidget {
                           child: Text(
                             test.difficulty,
                             style: TextStyle(
-                              fontSize: 10.sp,
+                              fontSize: 12.sp,
                               color: AppColors.primaryBlue,
                               fontWeight: FontWeight.w600,
                             ),
@@ -103,7 +104,7 @@ class TestDetailScreen extends StatelessWidget {
                         Text(
                           '${test.duration} minutes',
                           style: TextStyle(
-                            fontSize: 11.sp,
+                            fontSize: 12.sp,
                             color: AppColors.textGrey,
                           ),
                         ),
@@ -138,7 +139,7 @@ class TestDetailScreen extends StatelessWidget {
                     Text(
                       'Problem Description',
                       style: TextStyle(
-                        fontSize: 14.sp,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.w700,
                         color: AppColors.textDark,
                       ),
@@ -147,7 +148,7 @@ class TestDetailScreen extends StatelessWidget {
                     Text(
                       test.description,
                       style: TextStyle(
-                        fontSize: 11.sp,
+                        fontSize: 12.5.sp,
                         color: AppColors.textGrey,
                         height: 1.5,
                       ),
@@ -161,7 +162,7 @@ class TestDetailScreen extends StatelessWidget {
                           Text(
                             '${req.number}. ',
                             style: TextStyle(
-                              fontSize: 11.sp,
+                              fontSize: 12.5.sp,
                               color: AppColors.textDark,
                               fontWeight: FontWeight.w600,
                             ),
@@ -170,7 +171,7 @@ class TestDetailScreen extends StatelessWidget {
                             child: Text(
                               req.description,
                               style: TextStyle(
-                                fontSize: 11.sp,
+                                fontSize: 12.5.sp,
                                 color: AppColors.textGrey,
                                 height: 1.5,
                               ),
@@ -184,7 +185,7 @@ class TestDetailScreen extends StatelessWidget {
                       Text(
                         'Bonus Points:',
                         style: TextStyle(
-                          fontSize: 13.sp,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w700,
                           color: AppColors.textDark,
                         ),
@@ -195,12 +196,12 @@ class TestDetailScreen extends StatelessWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('- ', style: TextStyle(fontSize: 11.sp)),
+                            Text('- ', style: TextStyle(fontSize: 12.sp)),
                             Expanded(
                               child: Text(
                                 bonus,
                                 style: TextStyle(
-                                  fontSize: 11.sp,
+                                  fontSize: 12.5.sp,
                                   color: AppColors.textGrey,
                                 ),
                               ),
@@ -229,7 +230,7 @@ class TestDetailScreen extends StatelessWidget {
                     Text(
                       'Skills Being Evaluated',
                       style: TextStyle(
-                        fontSize: 14.sp,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.w700,
                         color: AppColors.textDark,
                       ),
@@ -251,7 +252,7 @@ class TestDetailScreen extends StatelessWidget {
                         child: Text(
                           skill,
                           style: TextStyle(
-                            fontSize: 11.sp,
+                            fontSize: 12.sp,
                             color: AppColors.primaryPurple,
                             fontWeight: FontWeight.w600,
                           ),
@@ -279,7 +280,7 @@ class TestDetailScreen extends StatelessWidget {
                     Text(
                       'Your Solution',
                       style: TextStyle(
-                        fontSize: 14.sp,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.w700,
                         color: AppColors.textDark,
                       ),
@@ -288,7 +289,7 @@ class TestDetailScreen extends StatelessWidget {
                     Text(
                       'Write your code or explanation',
                       style: TextStyle(
-                        fontSize: 10.sp,
+                        fontSize: 12.5.sp,
                         color: AppColors.textGrey,
                       ),
                     ),
@@ -304,7 +305,7 @@ class TestDetailScreen extends StatelessWidget {
                         maxLines: null,
                         expands: true,
                         style: TextStyle(
-                          fontSize: 11.sp,
+                          fontSize: 11.5.sp,
                           fontFamily: 'Courier',
                         ),
                         decoration: InputDecoration(
@@ -314,7 +315,7 @@ class TestDetailScreen extends StatelessWidget {
                               'const app = express();\n\n'
                               '// Your code here...',
                           hintStyle: TextStyle(
-                            fontSize: 10.sp,
+                            fontSize: 11.sp,
                             color: AppColors.textGrey,
                             fontFamily: 'Courier',
                           ),
@@ -355,7 +356,7 @@ class TestDetailScreen extends StatelessWidget {
                     Text(
                       'Click to upload or drag and drop',
                       style: TextStyle(
-                        fontSize: 12.sp,
+                        fontSize: 13.sp,
                         color: AppColors.textDark,
                       ),
                     ),
@@ -363,7 +364,7 @@ class TestDetailScreen extends StatelessWidget {
                     Text(
                       'Supported formats: .js, .ts, .py, .java, .zip',
                       style: TextStyle(
-                        fontSize: 10.sp,
+                        fontSize: 11.sp,
                         color: AppColors.textGrey,
                       ),
                     ),
@@ -376,14 +377,6 @@ class TestDetailScreen extends StatelessWidget {
               // Action Buttons
               Row(
                 children: [
-                  // Expanded(
-                  //   child: CustomButton(
-                  //     text: 'Save as Draft',
-                  //     onPressed: controller.saveAsDraft,
-                  //     isOutlined: true,
-                  //   ),
-                  // ),
-                  SizedBox(width: 3.w),
                   Expanded(
                     flex: 2,
                     child: Obx(() => CustomButton(

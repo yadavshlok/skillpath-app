@@ -9,4 +9,5 @@ abstract class Routes {
   static const SKILLS = '/skills';
   static const SETTINGS = '/settings';
   static const FEEDBACK = '/feedback';
+  static const CAREER_ASSESSMENT = '/career-assessment';
 }
