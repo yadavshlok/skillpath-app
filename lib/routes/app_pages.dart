@@ -10,6 +10,7 @@ import '../screens/settings_screen.dart';
 import '../screens/signup_screen.dart';
 import '../screens/skills_screen.dart';
 import '../screens/test_detail_screen.dart';
+import '../screens/test_feedback_screen.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -24,6 +25,10 @@ class AppPages {
     GetPage(
       name: Routes.CAREER_ASSESSMENT, // ADD THIS
       page: () => CareerAssessmentScreen(),
+    ),
+    GetPage(
+      name: Routes.TEST_FEEDBACK, // ADD THIS
+      page: () => TestFeedbackScreen(),
     ),
     GetPage(
       name: Routes.SIGNUP,

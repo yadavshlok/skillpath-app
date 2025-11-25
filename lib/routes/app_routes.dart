@@ -10,4 +10,5 @@ abstract class Routes {
   static const SETTINGS = '/settings';
   static const FEEDBACK = '/feedback';
   static const CAREER_ASSESSMENT = '/career-assessment';
+  static const TEST_FEEDBACK = '/test-feedback';
 }

@@ -1,6 +1,9 @@
 // app/controllers/test_controller.dart
 import 'package:get/get.dart';
 
+import '../models/test_result_model.dart';
+import '../routes/app_routes.dart';
+
 class TestRequirement {
   final int number;
   final String description;
@@ -325,18 +328,150 @@ class TestController extends GetxController {
     );
   }
 
+  // Update the submitTest method in test_controller.dart
+
   void submitTest() {
     isLoading.value = true;
-    Future.delayed(Duration(seconds: 2), () {
+
+    Future.delayed(Duration(seconds: 1), () {
       isLoading.value = false;
-      Get.back();
-      Get.snackbar(
-        'Test Submitted',
-        'Your solution has been submitted successfully',
-        snackPosition: SnackPosition.BOTTOM,
-      );
+
+      // Generate mock feedback based on career
+      final TestResult result = _generateTestResult();
+
+      // Navigate to feedback screen
+      Get.offNamed(Routes.TEST_FEEDBACK, arguments: {
+        'result': result,
+      });
     });
   }
+
+  TestResult _generateTestResult() {
+    final careerTitle = Get.arguments['careerTitle'] ?? 'Software Developer';
+
+    // Mock scoring - in real app, this would come from backend
+    final score = 75 + (DateTime.now().millisecond % 20); // Random 75-95
+
+    return TestResult(
+      testId: '1',
+      careerTitle: careerTitle,
+      score: score,
+      totalScore: 100,
+      userSolution: solutionCode.value.isEmpty
+          ? '// No solution provided'
+          : solutionCode.value,
+      strengths: _getStrengthsForCareer(careerTitle),
+      areasToImprove: _getAreasToImproveForCareer(careerTitle),
+      skillsToDevelop: _getSkillsToDevForCareer(careerTitle),
+      feedback: _getFeedbackForCareer(careerTitle, score),
+      submittedAt: DateTime.now(),
+    );
+  }
+
+  List<String> _getStrengthsForCareer(String career) {
+    switch (career.toLowerCase()) {
+      case 'software developer':
+        return [
+          'Strong understanding of RESTful API design principles',
+          'Good error handling implementation',
+          'Clean and readable code structure',
+        ];
+      case 'cyber security':
+        return [
+          'Excellent security protocol knowledge',
+          'Thorough vulnerability assessment',
+          'Good understanding of encryption methods',
+        ];
+      case 'cloud engineer':
+        return [
+          'Solid containerization concepts',
+          'Good understanding of cloud architecture',
+          'Effective use of CI/CD practices',
+        ];
+      default:
+        return [
+          'Good problem-solving approach',
+          'Clear code organization',
+          'Effective implementation strategy',
+        ];
+    }
+  }
+
+  List<String> _getAreasToImproveForCareer(String career) {
+    switch (career.toLowerCase()) {
+      case 'software developer':
+        return [
+          'Add more comprehensive input validation',
+          'Implement better error messages',
+          'Consider edge cases in your solution',
+        ];
+      case 'cyber security':
+        return [
+          'Include more detailed threat modeling',
+          'Expand on incident response procedures',
+          'Add more security testing scenarios',
+        ];
+      case 'cloud engineer':
+        return [
+          'Optimize resource allocation',
+          'Add more monitoring metrics',
+          'Improve disaster recovery plan',
+        ];
+      default:
+        return [
+          'Add more code comments',
+          'Consider performance optimization',
+          'Improve test coverage',
+        ];
+    }
+  }
+
+  List<String> _getSkillsToDevForCareer(String career) {
+    switch (career.toLowerCase()) {
+      case 'software developer':
+        return [
+          'Authentication & Authorization',
+          'Unit Testing',
+          'API Documentation',
+          'Database Optimization',
+        ];
+      case 'cyber security':
+        return [
+          'Advanced Penetration Testing',
+          'Security Automation',
+          'Compliance Standards',
+          'Forensics',
+        ];
+      case 'cloud engineer':
+        return [
+          'Kubernetes',
+          'Terraform',
+          'Cost Optimization',
+          'Multi-cloud Strategy',
+        ];
+      default:
+        return [
+          'Advanced Algorithms',
+          'System Design',
+          'Code Review',
+          'Documentation',
+        ];
+    }
+  }
+
+  String _getFeedbackForCareer(String career, int score) {
+    if (score >= 90) {
+      return 'Excellent work! You demonstrated strong proficiency in $career. Your solution shows deep understanding of the concepts and best practices. Keep up the great work!';
+    } else if (score >= 70) {
+      return 'Good job! You have a solid understanding of $career fundamentals. With some practice on the areas mentioned above, you\'ll be ready for more advanced challenges.';
+    } else if (score >= 50) {
+      return 'Fair attempt! You show basic understanding of $career concepts. Focus on the areas to improve and skills to develop to strengthen your foundation.';
+    } else {
+      return 'Keep learning! $career requires practice and dedication. Review the fundamentals and work on the recommended skills to build a stronger foundation.';
+    }
+  }
+
+
 
   @override
   void onClose() {
